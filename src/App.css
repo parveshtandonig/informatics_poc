@@ -1,32 +1,58 @@
-.App {
-  text-align: center;
+.flex--cont--def{
+  display: flex
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.app--container{
+  flex-direction:column;
+  flex-wrap: wrap;
+  margin: 0px auto;
+  max-width: 90%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app-header--cont{
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: beige;
 }
 
-.App-link {
-  color: #61dafb;
+.app--header--child--a{
+  flex-grow:10;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app--header--child--b{
+  flex-grow:1;
+}
+
+.app--header--child--c{
+  flex-grow:1;
+}
+
+.app--header--child--d{
+  flex-grow:1;
+}
+
+.grid--columns--container{
+  background-color: antiquewhite;
+  padding: 5px 10px;
+}
+
+.grid--columns--container--child--def{
+  flex-grow: 1;
+}
+
+.grid--row--container{
+  flex-grow: 1;
+  padding: 5px 10px;
+}
+
+.grid--row--child--container{
+  flex-grow: 1;
+}
+
+.action--container{
+
 }
