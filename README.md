@@ -10,7 +10,7 @@ $npm start
 
 #### Functionality and assignee
  * Parvesh's Tasks
-   * - [  ] Inline add
+   * Inline add
    * Develop ReactJS components to render grid data
    * Inline delete
    * Filter
