@@ -101,6 +101,10 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <div className="app--footer--container">
+          Footer
+        </div>
       </div>
     );
   }
