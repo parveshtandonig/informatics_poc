@@ -1,5 +1,11 @@
-// npm install react-datepicker --save
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 import './App.css';
 
 import { FaPlus } from "react-icons/fa";
@@ -22,7 +28,7 @@ class App extends Component {
             <div className="flex--cont--def grid-header--cont">
               <div className="grid-header--child grid-header--child--a">
                 User(256)
-          </div>
+              </div>
               <div className="grid-header--child grid-header--child--b">
                 <FaPlus size={22} />
               </div>
@@ -45,51 +51,54 @@ class App extends Component {
               </div>
               <div className="grid--columns--container--child--def grid--columns--container--child--a">
                 Unit
-          </div>
+              </div>
               <div className="grid--columns--container--child--def grid--columns--container--child--a">
                 discount
-          </div>
+              </div>
               <div className="grid--columns--container--child--def grid--columns--container--child--a">
                 in stock
-          </div>
+              </div>
               <div className="grid--columns--container--child--def grid--columns--container--child--a">
                 edit-delete
-          </div>
+              </div>
             </div>
-            {
-              [1, 2, 3, 4, 5].map((value, index) => (
+            <div className="grid--rows--container">
+              {
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 7, 8, 9, 10].map((value, index) => (
 
-                <div className="flex--cont--def grid--row--container">
-                  <div className="grid--row--child--container">
-                    <select className="middle--center">
-                      <option value="grapefruit">Grapefruit</option>
-                      <option value="lime">Lime</option>
-                      <option selected value="coconut">Coconut</option>
-                      <option value="mango">Mango</option>
-                    </select>
+                  <div className="flex--cont--def grid--row--container">
+                    <div className="grid--row--child--container">
+                      <Input type="select" name="name_a" id="exampleSelect">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </Input>
+                    </div>
+                    <div className="grid--row--child--container">
+                      <DatePicker className="grid--calender--field" />
+                    </div>
+                    <div className="grid--row--child--container">
+                      <Input type="text" name="name_c" id="exampleEmail" placeholder="with a placeholder" />
+                    </div>
+                    <div className="grid--row--child--container">
+                      <input type="checkbox" />
+                    </div>
+                    <div className="grid--row--child--container">
+                      <Input type="text" name="name_e" id="exampleEmail1" placeholder="with a placeholder" />
+                    </div>
+                    <div className="grid--row--child--container action--container">
+                      <div>
+                        edit-delete
+                    </div>
+                    </div>
+
                   </div>
-                  <div className="grid--row--child--container">
-                    <input className="middle--center" type="date" name="name_a" />
-                  </div>
-                  <div className="grid--row--child--container">
-                    <input className="middle--center" type="text" name="name_b" />
-                  </div>
-                  <div className="grid--row--child--container">
-                    <input className="middle--center" name="name_c" type="checkbox" />
-                  </div>
-                  <div className="grid--row--child--container">
-                    <input className="middle--center" name="name_d" type="text" />
-                  </div>
-                  <div className="grid--row--child--container action--container">
-                    <div>
-                      edit-delete
+
+                ))
+              }
             </div>
-                  </div>
-
-                </div>
-
-              ))
-            }
           </div>
         </div>
       </div>
