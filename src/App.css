@@ -17,6 +17,25 @@
   height: 40px;
 }
 
+.app-middle--container{
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 470px;
+}
+
+.app-sidebar--container{
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex:1 1 0;
+}
+
+.app-grid--container{
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex:10 10 0;
+}
+
 .grid-header--cont{
   flex-direction: row;
   flex-wrap: wrap;
