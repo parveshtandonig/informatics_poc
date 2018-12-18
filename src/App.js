@@ -31,7 +31,7 @@ class App extends Component {
         </div>
         <div className="flex--cont--def grid--columns--container">
           <div className="grid--columns--container--child--def grid--columns--container--child--a">
-            Name <IoMdArrowDropdown/>
+            Name <IoMdArrowDropdown />
           </div>
           <div className="grid--columns--container--child--def grid--columns--container--child--a">
             Order Date <IoMdArrowDropup />
@@ -51,6 +51,7 @@ class App extends Component {
         </div>
         {
           [1, 2, 3, 4, 5].map((value, index) => (
+
             <div className="flex--cont--def grid--row--container">
               <div className="grid--row--child--container">
                 <select className="middle--center">
