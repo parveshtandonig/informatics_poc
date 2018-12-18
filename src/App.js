@@ -11,18 +11,20 @@ class App extends Component {
   render() {
     return (
       <div className="flex--cont--def app--container">
-
         <div className="flex--cont--def app-header--cont">
-          <div className="app-header--child app--header--child--a">
+          Informatica
+        </div>
+        <div className="flex--cont--def grid-header--cont">
+          <div className="grid-header--child grid-header--child--a">
             User(256)
           </div>
-          <div className="app-header--child app--header--child--b">
+          <div className="grid-header--child grid-header--child--b">
             <FaPlus size={22} />
           </div>
-          <div className="app-header--child app--header--child--c">
+          <div className="grid-header--child grid-header--child--c">
             <FiFilter size={22} />
           </div>
-          <div className="app-header--child app--header--child--d">
+          <div className="grid-header--child grid-header--child--d">
             <input type='text'
               name='search--filter'
               id='search--filter'

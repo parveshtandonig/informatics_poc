@@ -14,21 +14,29 @@
   flex-wrap: wrap;
   padding-left: 5px;
   padding-right: 5px;
+  height: 40px;
 }
 
-.app--header--child--a{
+.grid-header--cont{
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.grid-header--child--a{
   flex: 10 10 0;
 }
 
-.app--header--child--b{
+.grid-header--child--b{
   flex: 0.3 1 0;
 }
 
-.app--header--child--c{
+.grid-header--child--c{
   flex: 0.3 1 0;
 }
 
-.app--header--child--d{
+.grid-header--child--d{
   flex: 1 1 0;
 }
 
