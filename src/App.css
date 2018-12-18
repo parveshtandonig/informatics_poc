@@ -14,45 +14,51 @@
   flex-wrap: wrap;
   padding-left: 5px;
   padding-right: 5px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  background-color: beige;
 }
 
 .app--header--child--a{
-  flex-grow:10;
+  flex: 10 10 0;
 }
 
 .app--header--child--b{
-  flex-grow:1;
+  flex: 0.3 1 0;
 }
 
 .app--header--child--c{
-  flex-grow:1;
+  flex: 0.3 1 0;
 }
 
 .app--header--child--d{
-  flex-grow:1;
+  flex: 1 1 0;
 }
 
 .grid--columns--container{
-  background-color: antiquewhite;
   padding: 5px 10px;
+  border-bottom: 2px solid #C7C7C7;
+  border-top: 1px solid #000000;
+  height: 24px;
 }
 
 .grid--columns--container--child--def{
-  flex-grow: 1;
+  flex: 1 1 0;
 }
 
 .grid--row--container{
-  flex-grow: 1;
-  padding: 5px 10px;
+  padding: 1px 1px;
+  border-bottom: 1px solid #C7C7C7;
 }
 
 .grid--row--child--container{
-  flex-grow: 1;
+  flex: 1 1 0;
+  position: relative;
 }
 
 .action--container{
 
+}
+
+.middle--center{
+  position: absolute;
+  left:auto;
+  top: 30%;
 }
