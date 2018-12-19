@@ -1,5 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class Header extends Component{
-    
+const Header = () => {
+
+    return (
+        <div className="flex--cont--def app-header--cont">
+            Informatica
+      </div>
+    )
 }
+
+export default Header;
