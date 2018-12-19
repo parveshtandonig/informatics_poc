@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+import React, { Component } from 'react'
+import 'bootstrap/dist/css/bootstrap.css'
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
 
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
 import './App.css';
+import Header from './components/Header'
 
-import { FaPlus } from "react-icons/fa";
-import { FiFilter } from "react-icons/fi";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { FaPlus } from "react-icons/fa"
+import { FiFilter } from "react-icons/fi"
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io"
 
 class App extends Component {
 
   render() {
     return (
       <div className="flex--cont--def app--container">
-        <div className="flex--cont--def app-header--cont">
-          Informatica
-        </div>
+        <Header />
         <div className="flex--cont--def app-middle--container">
           <div className="flex--cont--def app-sidebar--container">
             Sidebar

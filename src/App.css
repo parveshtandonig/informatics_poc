@@ -14,15 +14,16 @@
   flex-wrap: wrap;
   padding-left: 5px;
   padding-right: 5px;
-  height: 80px;
+  height: 60px;
   border-bottom: solid 1px #C7C7C7;
 }
+
 .app--footer--container{
   flex-direction: row;
   flex-wrap: wrap;
   padding-left: 5px;
   padding-right: 5px;
-  height: 80px;
+  height: 60px;
   border-bottom: solid 1px #C7C7C7;
 }
 
@@ -80,8 +81,8 @@
 }
 
 .grid--rows--container{
-  min-height:480px;
-  max-height:480px;
+  min-height:430px;
+  max-height:430px;
   overflow-y: scroll;
 }
 
