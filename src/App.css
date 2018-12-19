@@ -70,13 +70,13 @@
   flex: 1 1 0;
 }
 
-.grid--columns--container{
+.grid-headers--container{
   padding: 5px 10px;
   border-bottom: 2px solid #C7C7C7;
   border-top: 1px solid #000000;
 }
 
-.grid--columns--container--child--def{
+.grid-headers--container--child--def{
   flex: 1 1 0;
 }
 
