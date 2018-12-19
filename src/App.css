@@ -47,26 +47,26 @@
   flex:10 10 0;
 }
 
-.grid-header--cont{
+.user-actions--container{
   flex-direction: row;
   flex-wrap: wrap;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.grid-header--child--a{
+.user-actions--child--a{
   flex: 10 10 0;
 }
 
-.grid-header--child--b{
+.user-actions--child--b{
   flex: 0.3 1 0;
 }
 
-.grid-header--child--c{
+.user-actions--child--c{
   flex: 0.3 1 0;
 }
 
-.grid-header--child--d{
+.user-actions--child--d{
   flex: 1 1 0;
 }
 

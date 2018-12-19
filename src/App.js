@@ -8,9 +8,10 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
 import './App.css';
 import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+import UserAction from './components/UserAction'
 
-import { FaPlus } from "react-icons/fa"
-import { FiFilter } from "react-icons/fi"
+
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io"
 
 class App extends Component {
@@ -20,28 +21,11 @@ class App extends Component {
       <div className="flex--cont--def app--container">
         <Header />
         <div className="flex--cont--def app-middle--container">
-          <div className="flex--cont--def app-sidebar--container">
-            Sidebar
-          </div>
+          <Sidebar />
           <div className="flex--cont--def app-grid--container">
-            <div className="flex--cont--def grid-header--cont">
-              <div className="grid-header--child grid-header--child--a">
-                User(256)
-              </div>
-              <div className="grid-header--child grid-header--child--b">
-                <FaPlus size={22} />
-              </div>
-              <div className="grid-header--child grid-header--child--c">
-                <FiFilter size={22} />
-              </div>
-              <div className="grid-header--child grid-header--child--d">
-                <input type='text'
-                  name='search--filter'
-                  id='search--filter'
-                  placeholder='Search here' />
-              </div>
-            </div>
+            <UserAction />
             <div className="flex--cont--def grid--columns--container">
+
               <div className="grid--columns--container--child--def grid--columns--container--child--a">
                 Name <IoMdArrowDropdown />
               </div>
@@ -60,6 +44,7 @@ class App extends Component {
               <div className="grid--columns--container--child--def grid--columns--container--child--a">
                 edit-delete
               </div>
+
             </div>
             <div className="grid--rows--container">
               {
