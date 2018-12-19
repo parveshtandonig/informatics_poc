@@ -5,10 +5,9 @@ import "react-datepicker/dist/react-datepicker.css"
 import './App.css';
 import Header from './components/header/header'
 import Sidebar from './components/sidebar/sidebar'
-import UserAction from './components/user_action/userAction'
-import GridHeader from './components/grid/gridHeader'
 import Footer from './components/footer/footer'
-import GridContent from './components/grid/gridContent'
+
+import AppRouter from './appRouter'
 
 class App extends Component {
 
@@ -20,9 +19,7 @@ class App extends Component {
         <div className="flex--cont--def app-middle--container">
           <Sidebar />
           <div className="flex--cont--def app-grid--container">
-            <UserAction />
-            <GridHeader />
-            <GridContent />
+            <AppRouter />
           </div>
         </div>
         <Footer />

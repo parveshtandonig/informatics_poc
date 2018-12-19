@@ -1,13 +1,9 @@
-import React, { Component } from 'react'
-
+import React from 'react'
 import DatePicker from "react-datepicker"
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
-class GridRecord extends Component {
-
-  render() {
-
-    return (
+const GridRecord = (props) => {
+  return (
       <div className="flex--cont--def grid--row--container">
       
         <div className="grid--row--child--container">
@@ -39,8 +35,5 @@ class GridRecord extends Component {
 
       </div>
     )
-  }
-
 }
-
 export default GridRecord
