@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import DatePicker from "react-datepicker"
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
-class GridContent extends Component {
+class GridRecord extends Component {
 
   render() {
 
@@ -43,4 +43,4 @@ class GridContent extends Component {
 
 }
 
-export default GridContent
+export default GridRecord

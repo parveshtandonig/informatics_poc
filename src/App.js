@@ -3,12 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import "react-datepicker/dist/react-datepicker.css"
 
 import './App.css';
-import Header from './components/Header'
-import Sidebar from './components/Sidebar'
-import UserAction from './components/UserAction'
-import GridHeader from './components/GridHeader'
-import GridContent from './components/GridContent'
-import Footer from './components/Footer'
+import Header from './components/header/header'
+import Sidebar from './components/sidebar/sidebar'
+import UserAction from './components/user_action/userAction'
+import GridHeader from './components/grid/gridHeader'
+import Footer from './components/footer/footer'
+import GridContent from './components/grid/gridContent'
 
 class App extends Component {
 
@@ -21,15 +21,7 @@ class App extends Component {
           <div className="flex--cont--def app-grid--container">
             <UserAction />
             <GridHeader />
-            <div className="grid--rows--container">
-              {
-                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 7, 8, 9, 10].map((value, index) => (
-
-                  <GridContent />
-
-                ))
-              }
-            </div>
+            <GridContent />
           </div>
         </div>
         <Footer />
