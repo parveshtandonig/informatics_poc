@@ -13,6 +13,7 @@ import GridContent from './components/grid/gridContent'
 class App extends Component {
 
   render() {
+
     return (
       <div className="flex--cont--def app--container">
         <Header />
@@ -26,7 +27,8 @@ class App extends Component {
         </div>
         <Footer />
       </div>
-    );
+    )
+    
   }
 }
 
