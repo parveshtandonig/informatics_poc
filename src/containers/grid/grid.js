@@ -11,7 +11,14 @@ import GridRecord from '../../components/grid/gridRecord'
 class GridContent extends Component {
 
     renderGridRecord = () =>{
-        return this.props.gridInfo.map((value, index) => <GridRecord key={index} />)
+        return this.props.gridInfo.map((data, index) => {
+            return <GridRecord key={index} userInfo={data} />
+        })
+    }
+
+    addUserInfo = () => {
+        let data = {'name':'Sonu', 'orderDate':'', 'unit':0, 'inStock':'true'}
+        this.props.addInfo(data);
     }
 
     render() {
@@ -19,10 +26,10 @@ class GridContent extends Component {
             <React.Fragment>
                 <div className="flex--cont--def user-actions--container">
                     <div className="user-actions--child user-actions--child--a">
-                        User(256)
+                        User({this.props.gridInfo.length})
                     </div>
                     <div className="user-actions--child user-actions--child--b">
-                        <FaPlus size={22} />
+                        <FaPlus size={22} onClick={()=> this.addUserInfo()} />
                     </div>
                     <div className="user-actions--child user-actions--child--c">
                         <FiFilter size={22} />
@@ -60,14 +67,13 @@ class GridContent extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.grid.gridInfo)
     return {
       gridInfo:state.grid.gridInfo
     }
 }
 const mapDispatchToProps = dispatch => {
     return{
-        addInfo:(info) => dispatch(actionType.getGridInfo(info))
+        addInfo:(info) => dispatch(actionType.addUserInfo(info))
     }
 }
 

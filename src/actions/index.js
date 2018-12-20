@@ -1,7 +1,2 @@
-export const GRIDINFO = 'GRIDINFO'
-export const getGridInfo = (gridInfo) => {
-    return {
-      type:GRIDINFO,
-      gridInfo
-    }
-  }
+export * from './action.type'
+export * from './grid.action'

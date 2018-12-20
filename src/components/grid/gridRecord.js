@@ -7,7 +7,7 @@ const GridRecord = (props) => {
       <div className="flex--cont--def grid--row--container">
       
         <div className="grid--row--child--container">
-          <Input type="select" name="name_a" id="exampleSelect">
+          <Input type="select" name="name_a">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -19,13 +19,13 @@ const GridRecord = (props) => {
           <DatePicker className="grid--calender--field" />
         </div>
         <div className="grid--row--child--container">
-          <Input type="text" name="name_c" id="exampleEmail" placeholder="with a placeholder" />
+          <Input type="text" name="text1" placeholder="with a placeholder" />
         </div>
         <div className="grid--row--child--container">
           <input type="checkbox" />
         </div>
         <div className="grid--row--child--container">
-          <Input type="text" name="name_e" id="exampleEmail1" placeholder="with a placeholder" />
+          <Input type="text" name="text2" defaultValue={props.userInfo.name} placeholder="with a placeholder" />
         </div>
         <div className="grid--row--child--container action--container">
           <div>
