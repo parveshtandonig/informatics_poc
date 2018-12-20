@@ -76,7 +76,7 @@ const GridRecord = (props) => {
             {props.newRecord ? 
               <button onClick={()=> saveData()}>Save</button> 
               : 
-              <span><button onClick={()=> editData()}>Edit</button><button onClick={()=> deleteData()}>Edit</button></span>}
+              <span><button onClick={()=> editData()}>Edit</button><button onClick={()=> deleteData()}>Delete</button></span>}
           </div>
         </div>
 
@@ -86,6 +86,7 @@ const GridRecord = (props) => {
 
 const mapDispatchToProps = dispatch => {
   return{
+    addInfo:(info) => dispatch(actionType.addUserInfo(info)),
     editInfo:(info) => dispatch(actionType.editUserInfo(info)),
     deleteInfo:(info) => dispatch(actionType.deleteUserInfo(info)),
   }
