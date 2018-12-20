@@ -6,6 +6,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
 const GridRecord = (props) => {
   var data = {
+    id:props.id,
     name_val: props.name_val,
     order_date: props.order_date,
     unit: props.unit,
@@ -33,6 +34,10 @@ const GridRecord = (props) => {
 
   const saveData=()=>{    
     props.addInfo(data);
+  }
+
+  const editData=()=>{    
+    props.editInfo(data);
   }
 
   return (
@@ -68,7 +73,7 @@ const GridRecord = (props) => {
             {props.newRecord ? 
               <button onClick={()=> saveData()}>Save</button> 
               : 
-              <button onClick={()=> saveData()}>Edit</button>}
+              <button onClick={()=> editData()}>Edit</button>}
           </div>
         </div>
 
@@ -78,7 +83,7 @@ const GridRecord = (props) => {
 
 const mapDispatchToProps = dispatch => {
   return{
-      addInfo:(info) => dispatch(actionType.addUserInfo(info))
+    editInfo:(info) => dispatch(actionType.editUserInfo(info))
   }
 }
 

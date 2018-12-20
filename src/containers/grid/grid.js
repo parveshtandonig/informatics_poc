@@ -25,7 +25,8 @@ class GridContent extends Component {
     renderGridRecord = () =>{
         return this.props.gridInfo.map((data, index) => {
            return <GridRecord 
-                key={index}
+                key={data.id}
+                id={data.id}
                 name_val={data.name_val}
                 order_date={data.order_date} 
                 unit={data.unit}
@@ -97,6 +98,7 @@ class GridContent extends Component {
                 </div>
                 <div style={{display: this.state.showAddUserUI ? 'block' : 'none'}} className="grid-add-row-container">
                     <GridRecord 
+                        id={0}
                         name_val=''
                         order_date='' 
                         unit={1}

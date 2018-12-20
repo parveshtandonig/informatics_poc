@@ -1,4 +1,4 @@
-import { ADDUSER, GRIDINFO } from '../actions'
+import { ADDUSER, GRIDINFO, EDITUSER} from '../actions'
 
 const INIT_STATE = { gridInfo:[
 	{
@@ -814,6 +814,14 @@ const reducer = (state = INIT_STATE, action) => {
       return {
         ...state,
         gridInfo: [...state.gridInfo, action.info]
+      }
+    case EDITUSER:
+      const index = state.gridInfo.findIndex((user) => user.id === action.info.id);
+      state.gridInfo[index] = action.info;
+      console.log(action.info.id)
+      return {
+        ...state,
+        gridInfo: [...state.gridInfo]
       }
     default:
       return state

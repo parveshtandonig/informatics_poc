@@ -1,4 +1,4 @@
-import {GRIDINFO, ADDUSER} from './action.type'
+import {GRIDINFO, ADDUSER, EDITUSER} from './action.type'
 
 export const getGridInfo = (gridInfo) => {
     return {
@@ -10,6 +10,14 @@ export const getGridInfo = (gridInfo) => {
 export const addUserInfo = (info) => {
     return {
         type:ADDUSER,
+        info
+    }
+}
+
+export const editUserInfo = (info) => {
+    console.log(info)
+    return {
+        type:EDITUSER,
         info
     }
 }
