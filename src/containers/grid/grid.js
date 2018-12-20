@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io"
-import { FaPlus } from "react-icons/fa"
+import { FaPlus, FaMinus } from "react-icons/fa"
 import { FiFilter } from "react-icons/fi"
 
 import {connect} from 'react-redux'
@@ -9,27 +9,52 @@ import * as actionType from '../../actions'
 import GridRecord from '../../components/grid/gridRecord'
 
 class GridContent extends Component {
-
+    
+    constructor(props){
+        super(props)
+        let {location} = props;
+        let post = location.state ? location.state : null;
+        
+        this.state = {
+            userInfoSchema:{
+                name:'', 
+                orderDate:'', 
+                unit:0, 
+                inStock:true
+            },
+            showAddUserUI:false
+        }
+    }
     renderGridRecord = () =>{
-        return this.props.gridInfo.map((data, index) => {
-            return <GridRecord key={index} userInfo={data} />
-        })
+        return this.props.gridInfo.map((data, index) => <GridRecord key={index} userInfo={data.name} />)
     }
 
+    addUserUI = (info) => this.setState({showAddUserUI:info})
+    
     addUserInfo = () => {
-        let data = {'name':'Sonu', 'orderDate':'', 'unit':0, 'inStock':'true'}
+        let data = {...this.state.userInfoSchema}
         this.props.addInfo(data);
     }
+
+
 
     render() {
         return (
             <React.Fragment>
                 <div className="flex--cont--def user-actions--container">
                     <div className="user-actions--child user-actions--child--a">
-                        User({this.props.gridInfo.length})
+                        User({this.props.gridInfo.length}) 
                     </div>
                     <div className="user-actions--child user-actions--child--b">
-                        <FaPlus size={22} onClick={()=> this.addUserInfo()} />
+                        <FaPlus 
+                            size={22} 
+                            style={{display: this.state.showAddUserUI ? 'none' : 'block' }}
+                            onClick={()=> this.addUserUI(true)} />
+                        <FaMinus 
+                            size={22} 
+                            style={{display: this.state.showAddUserUI ? 'block' : 'none' }}
+                            onClick={()=> this.addUserUI(false)} />
+
                     </div>
                     <div className="user-actions--child user-actions--child--c">
                         <FiFilter size={22} />
@@ -58,6 +83,13 @@ class GridContent extends Component {
                         edit-delete
                     </div>
                 </div>
+                <div style={{display: this.state.showAddUserUI ? 'block' : 'none'}} className="grid-add-row-container">
+                    <GridRecord 
+                    userInfo={this.state.userInfoSchema} 
+                    onClickHandler={() => this.addUserInfo()}
+                    onNameChangeHandler={(evt) => console.log('c')}
+                    newRecord="true" />
+                </div>
                 <div className="grid--rows--container">
                     {this.renderGridRecord()}
                 </div>
@@ -71,6 +103,7 @@ const mapStateToProps = state => {
       gridInfo:state.grid.gridInfo
     }
 }
+
 const mapDispatchToProps = dispatch => {
     return{
         addInfo:(info) => dispatch(actionType.addUserInfo(info))

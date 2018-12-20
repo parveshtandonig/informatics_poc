@@ -12,7 +12,7 @@ const reducer = (state = INIT_STATE, action) => {
     case ADDUSER:
       return {
           ...state,
-          gridInfo:[action.info, ...state.gridInfo]
+          gridInfo:[...state.gridInfo,action.info]
         }
     default:
       return state

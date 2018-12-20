@@ -25,11 +25,16 @@ const GridRecord = (props) => {
           <input type="checkbox" />
         </div>
         <div className="grid--row--child--container">
-          <Input type="text" name="text2" defaultValue={props.userInfo.name} placeholder="with a placeholder" />
+          <Input 
+            type="text" 
+            name="text2" 
+            onChange={(evt)=>props.onNameChangeHandler(evt)}
+            defaultValue={props.userInfo.name} 
+            placeholder="with a placeholder" />
         </div>
         <div className="grid--row--child--container action--container">
           <div>
-            edit-delete
+            {props.newRecord ? <button onClick={()=>props.onClickHandler()}>Save</button> : 'edit-delete'}
           </div>
         </div>
 
