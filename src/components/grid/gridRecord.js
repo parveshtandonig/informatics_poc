@@ -39,6 +39,9 @@ const GridRecord = (props) => {
   const editData=()=>{    
     props.editInfo(data);
   }
+  const deleteData=()=>{    
+    props.deleteInfo(data);
+  }
 
   return (
       <div className="flex--cont--def grid--row--container">      
@@ -73,7 +76,7 @@ const GridRecord = (props) => {
             {props.newRecord ? 
               <button onClick={()=> saveData()}>Save</button> 
               : 
-              <button onClick={()=> editData()}>Edit</button>}
+              <span><button onClick={()=> editData()}>Edit</button><button onClick={()=> deleteData()}>Edit</button></span>}
           </div>
         </div>
 
@@ -83,7 +86,8 @@ const GridRecord = (props) => {
 
 const mapDispatchToProps = dispatch => {
   return{
-    editInfo:(info) => dispatch(actionType.editUserInfo(info))
+    editInfo:(info) => dispatch(actionType.editUserInfo(info)),
+    deleteInfo:(info) => dispatch(actionType.deleteUserInfo(info)),
   }
 }
 
