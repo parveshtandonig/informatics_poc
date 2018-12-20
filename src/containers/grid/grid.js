@@ -12,29 +12,41 @@ class GridContent extends Component {
     
     constructor(props){
         super(props)
-        let {location} = props;
-        let post = location.state ? location.state : null;
         
         this.state = {
-            userInfoSchema:{
-                name:'', 
-                orderDate:'', 
-                unit:0, 
-                inStock:true
-            },
+            name_val: 5,
+            order_date: "1566591226",
+            unit: 12,
+            discount: "1",
+            in_stock:"yes",
             showAddUserUI:false
         }
     }
     renderGridRecord = () =>{
-        return this.props.gridInfo.map((data, index) => <GridRecord key={index} userInfo={data.name} />)
+        return this.props.gridInfo.map((data, index) => {
+           return <GridRecord 
+                key={index}
+                name_val={data.name_val}
+                order_date={data.order_date} 
+                unit={data.unit}
+                discount = {data.discount}
+                in_stock = {data.in_stock}
+                newRecord={false}
+                />
+        })
     }
 
     addUserUI = (info) => this.setState({showAddUserUI:info})
     
-    addUserInfo = () => {
-        let data = {...this.state.userInfoSchema}
+    /*addUserInfo = () => {
+        let data = {
+            name: this.state.name || '',
+            orderDate: this.state.orderDate || new Date(),
+            unit:this.state.unit || 1,
+            inStock:this.state.inStock || true
+        }
         this.props.addInfo(data);
-    }
+    }*/
 
 
 
@@ -85,10 +97,12 @@ class GridContent extends Component {
                 </div>
                 <div style={{display: this.state.showAddUserUI ? 'block' : 'none'}} className="grid-add-row-container">
                     <GridRecord 
-                    userInfo={this.state.userInfoSchema} 
-                    onClickHandler={() => this.addUserInfo()}
-                    onNameChangeHandler={(evt) => console.log('c')}
-                    newRecord="true" />
+                        name_val=''
+                        order_date='' 
+                        unit={1}
+                        discount = {0}
+                        in_stock = ''
+                        newRecord={true} />
                 </div>
                 <div className="grid--rows--container">
                     {this.renderGridRecord()}
