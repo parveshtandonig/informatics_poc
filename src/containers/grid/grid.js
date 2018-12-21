@@ -25,17 +25,17 @@ class GridContent extends Component {
 
     renderGridRecord = () => {
 
-        return this.props.gridInfo.map((data, index) => {
+        return this.props.gridInfo.map((record, index) => {
 
             return <GridRecord
-                key={data.id}
-                id={data.id}
-                name_val={data.name_val}
-                order_date={data.order_date}
-                unit={data.unit}
-                discount={data.discount}
-                in_stock={data.in_stock}
-                newRecord={false}
+                key={record.id}
+                id={record.id}
+            // name_val={data.name_val}
+            // order_date={data.order_date}
+            // unit={data.unit}
+            // discount={data.discount}
+            // in_stock={data.in_stock}
+            // newRecord={false}
             />
         })
     }
@@ -53,7 +53,9 @@ class GridContent extends Component {
     }*/
 
     render() {
+
         return (
+
             <React.Fragment>
                 <div className="flex--cont--def user-actions--container">
                     <div className="user-actions--child user-actions--child--a">
@@ -110,6 +112,7 @@ class GridContent extends Component {
                 <div className="grid--rows--container">
                     {this.renderGridRecord()}
                 </div>
+
             </React.Fragment>
         )
     }
