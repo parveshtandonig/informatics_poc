@@ -1,44 +1,47 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import { FiFilter } from "react-icons/fi"
-
-import {connect} from 'react-redux'
 
 import * as actionType from '../../actions'
 import GridRecord from '../../components/grid/gridRecord'
 
 class GridContent extends Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props)
-        
+
         this.state = {
             name_val: 5,
             order_date: "1566591226",
             unit: 12,
             discount: "1",
-            in_stock:"yes",
-            showAddUserUI:false
+            in_stock: "yes",
+            showAddUserUI: false
         }
     }
-    renderGridRecord = () =>{
+
+    renderGridRecord = () => {
+
         return this.props.gridInfo.map((data, index) => {
-           return <GridRecord 
+
+            return <GridRecord
                 key={data.id}
                 id={data.id}
                 name_val={data.name_val}
-                order_date={data.order_date} 
+                order_date={data.order_date}
                 unit={data.unit}
-                discount = {data.discount}
-                in_stock = {data.in_stock}
+                discount={data.discount}
+                in_stock={data.in_stock}
                 newRecord={false}
-                />
+            />
         })
     }
 
-    addUserUI = (info) => this.setState({showAddUserUI:info})
-    
+    addUserUI = (info) => this.setState({ showAddUserUI: info })
+
     /*addUserInfo = () => {
         let data = {
             name: this.state.name || '',
@@ -49,24 +52,22 @@ class GridContent extends Component {
         this.props.addInfo(data);
     }*/
 
-
-
     render() {
         return (
             <React.Fragment>
                 <div className="flex--cont--def user-actions--container">
                     <div className="user-actions--child user-actions--child--a">
-                        User({this.props.gridInfo.length}) 
+                        User({this.props.gridInfo.length})
                     </div>
                     <div className="user-actions--child user-actions--child--b">
-                        <FaPlus 
-                            size={22} 
-                            style={{display: this.state.showAddUserUI ? 'none' : 'block' }}
-                            onClick={()=> this.addUserUI(true)} />
-                        <FaMinus 
-                            size={22} 
-                            style={{display: this.state.showAddUserUI ? 'block' : 'none' }}
-                            onClick={()=> this.addUserUI(false)} />
+                        <FaPlus
+                            size={22}
+                            style={{ display: this.state.showAddUserUI ? 'none' : 'block' }}
+                            onClick={() => this.addUserUI(true)} />
+                        <FaMinus
+                            size={22}
+                            style={{ display: this.state.showAddUserUI ? 'block' : 'none' }}
+                            onClick={() => this.addUserUI(false)} />
 
                     </div>
                     <div className="user-actions--child user-actions--child--c">
@@ -96,33 +97,33 @@ class GridContent extends Component {
                         edit-delete
                     </div>
                 </div>
-                <div style={{display: this.state.showAddUserUI ? 'block' : 'none'}} className="grid-add-row-container">
-                    <GridRecord 
+                <div style={{ display: this.state.showAddUserUI ? 'block' : 'none' }} className="grid-add-row-container">
+                    <GridRecord
                         id={0}
                         name_val=''
-                        order_date='' 
+                        order_date=''
                         unit={1}
-                        discount = {0}
-                        in_stock = ''
+                        discount={0}
+                        in_stock=''
                         newRecord={true} />
                 </div>
                 <div className="grid--rows--container">
                     {this.renderGridRecord()}
                 </div>
-            </React.Fragment>      
+            </React.Fragment>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-      gridInfo:state.grid.gridInfo
+        gridInfo: state.grid.gridInfo
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    return{
-        addInfo:(info) => dispatch(actionType.addUserInfo(info))
+    return {
+        addInfo: (info) => dispatch(actionType.addUserInfo(info))
     }
 }
 
