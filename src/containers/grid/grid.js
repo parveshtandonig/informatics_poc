@@ -27,10 +27,11 @@ class GridContent extends Component {
             showAddUserUI: false,
             current: 1,
             recPerPage:10,
-            filterd:''
+            filterd:'',
+            totalRecord:0
         }
     }
-
+    static totalRecord = 0
     onShowSizeChange = (current, recPerPage) => {
         this.setState({recPerPage})
     }
@@ -39,33 +40,46 @@ class GridContent extends Component {
         this.setState({current});
     }
 
+    filterHandler = (evt) => {
+        this.setState({filterd:evt.target.value, current:1})
+    }
+
     renderGridRecord = () => {
-        var welcome = []
-        const {current, recPerPage} = this.state
+        var welcome = [];
+        const {current, recPerPage} = this.state;
 
         var endCount=0;
-        if((current * recPerPage) < this.props.gridInfo.length){
-            endCount = current * recPerPage
+        let filterdData;
+
+        if(this.state.filterd !== ''){
+            filterdData = this.props.gridInfo.filter(item => JSON.stringify(item).indexOf(this.state.filterd) != -1);
         }else{
-            var sss = current * recPerPage
-            endCount = this.props.length - sss;
+            filterdData = this.props.gridInfo;
         }
+        
+        if((current * recPerPage) < filterdData.length){
+            endCount = current * recPerPage;
+        }else{
+            var sss = current * recPerPage;
+            endCount = filterdData.length - sss;
+        }
+
         var startCount = current == 1 ? 0 : ((this.state.current-1) * this.state.recPerPage);
         
         for(var count = startCount; count < endCount; count++){
             welcome.push(<GridRecord
-                key={this.props.gridInfo[count].id}
-                id={this.props.gridInfo[count].id}
-                name_val={this.props.gridInfo[count].name_val}
-                order_date={this.props.gridInfo[count].order_date}
-                unit={this.props.gridInfo[count].unit}
-                discount={this.props.gridInfo[count].discount}
-                in_stock={this.props.gridInfo[count].in_stock}
+                key={filterdData[count].id}
+                id={filterdData[count].id}
+                name_val={filterdData[count].name_val}
+                order_date={filterdData[count].order_date}
+                unit={filterdData[count].unit}
+                discount={filterdData[count].discount}
+                in_stock={filterdData[count].in_stock}
                 newRecord={false}
             />)
         }
+        this.totalRecord = filterdData.length;
         return welcome
-
     }
 
     addUserUI = (info) => this.setState({ showAddUserUI: info })
@@ -102,7 +116,7 @@ class GridContent extends Component {
                         <FiFilter size={22} />
                     </div>
                     <div className="user-actions--child user-actions--child--d">
-                        <input type='text' name='search--filter' id='search--filter' placeholder='Search here' />
+                        <input type='text' name='search--filter' id='search--filter' onChange={(evt)=> this.filterHandler(evt)} placeholder='Search here' />
                     </div>
                 </div>
                 <div className="flex--cont--def grid-headers--container">
@@ -148,7 +162,7 @@ class GridContent extends Component {
                     defaultCurrent={1}
                     onShowSizeChange={this.onShowSizeChange}
                     onChange={this.onChange}
-                    total={this.props.gridInfo.length}
+                    total={this.totalRecord}
                     locale={localeInfo}
                     />
                 
