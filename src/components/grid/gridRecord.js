@@ -67,7 +67,7 @@ const GridRecord = (props) => {
           <Input 
             type="text" 
             name="text2"
-            defaultValue={props.in_stock}
+            value={props.in_stock}
             onChange={(evt) => getData(evt)}
             placeholder="with a placeholder" />
         </div>

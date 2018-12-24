@@ -5,6 +5,12 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import { FiFilter } from "react-icons/fi"
 
+import Select from 'rc-select';
+import Pagination from 'rc-pagination';
+import localeInfo from 'rc-pagination/lib/locale/en_US';
+import 'rc-pagination/assets/index.css';
+import 'rc-select/assets/index.css';
+
 import * as actionType from '../../actions'
 import GridRecord from '../../components/grid/gridRecord'
 
@@ -19,14 +25,27 @@ class GridContent extends Component {
             unit: 12,
             discount: "1",
             in_stock: "yes",
-            showAddUserUI: false
+            showAddUserUI: false,
+            current: 1,
+            recPerPage:10
         }
     }
 
+    onShowSizeChange = (current, recPerPage) => {
+        console.log(current);
+       // console.log(pageSize);
+        this.setState({recPerPage})
+    }
+    
+    onChange = (current, pageSize) => {
+        this.setState({current})
+        console.log('onChange:current=', current);
+        console.log('onChange:pageSize=', pageSize);
+    }
+
     renderGridRecord = () => {
-
-        return this.props.gridInfo.map((data, index) => {
-
+        
+        /*return this.props.gridInfo.map((data, index, ram ) => {
             return <GridRecord
                 key={data.id}
                 id={data.id}
@@ -37,7 +56,34 @@ class GridContent extends Component {
                 in_stock={data.in_stock}
                 newRecord={false}
             />
-        })
+        })*/
+        var welcome = []
+        const {current, recPerPage} = this.state
+
+        var endCount=0;
+        if((current * recPerPage) < this.props.gridInfo.length){
+            endCount = current * recPerPage
+        }else{
+            var sss = current * recPerPage
+            endCount = this.props.length - sss;
+        }
+        var startCount = current == 1 ? 0 : ((this.state.current-1) * this.state.recPerPage);
+        
+        for(var count = startCount; count < endCount; count++){
+            welcome.push(<GridRecord
+                key={this.props.gridInfo[count].id}
+                id={this.props.gridInfo[count].id}
+                name_val={this.props.gridInfo[count].name_val}
+                order_date={this.props.gridInfo[count].order_date}
+                unit={this.props.gridInfo[count].unit}
+                discount={this.props.gridInfo[count].discount}
+                in_stock={this.props.gridInfo[count].in_stock}
+                newRecord={false}
+            />)
+        }
+        console.log('====',welcome)
+        return welcome
+
     }
 
     addUserUI = (info) => this.setState({ showAddUserUI: info })
@@ -110,6 +156,22 @@ class GridContent extends Component {
                 <div className="grid--rows--container">
                     {this.renderGridRecord()}
                 </div>
+                
+                <div className="grid--rows--container">
+                <Pagination
+                    selectComponentClass={Select}
+                    showSizeChanger
+                    //showQuickJumper={true}
+                    defaultPageSize={this.state.recPerPage}
+                    defaultCurrent={1}
+                    onShowSizeChange={this.onShowSizeChange}
+                    onChange={this.onChange}
+                    total={this.props.gridInfo.length}
+                    locale={localeInfo}
+                    />
+                
+                </div>
+                
             </React.Fragment>
         )
     }

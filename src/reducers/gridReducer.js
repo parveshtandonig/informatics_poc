@@ -16,7 +16,7 @@ const INIT_STATE = { gridInfo:[
 		"unit": 14,
 		"discount": "1",
 		"in_stock": "yes"
-  }/*,
+  },
 	{
 		"id": 3,
 		"name_val": 5,
@@ -95,7 +95,7 @@ const INIT_STATE = { gridInfo:[
 		"order_date": "1573636667",
 		"unit": 11,
 		"discount": "0",
-		"in_stock": "no"
+		"in_stock": "n2o"
 	},
 	{
 		"id": 13,
@@ -800,7 +800,7 @@ const INIT_STATE = { gridInfo:[
 		"unit": 11,
 		"discount": "0",
 		"in_stock": "no"
-	}*/
+	}
 ] }
 
 const reducer = (state = INIT_STATE, action) => {
@@ -825,7 +825,7 @@ const reducer = (state = INIT_STATE, action) => {
     case DELETEUSER:
       return {
         ...state,
-        gridInfo: state.gridInfo.filter((user) => user.id != action.info.id)
+        gridInfo: state.gridInfo.filter((user) => user.id !== action.info.id)
       }
     default:
       return state
