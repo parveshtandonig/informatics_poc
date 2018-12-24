@@ -18,7 +18,6 @@ class GridContent extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
             name_val: 5,
             order_date: "1566591226",
@@ -27,36 +26,20 @@ class GridContent extends Component {
             in_stock: "yes",
             showAddUserUI: false,
             current: 1,
-            recPerPage:10
+            recPerPage:10,
+            filterd:''
         }
     }
 
     onShowSizeChange = (current, recPerPage) => {
-        console.log(current);
-       // console.log(pageSize);
         this.setState({recPerPage})
     }
     
     onChange = (current, pageSize) => {
-        this.setState({current})
-        console.log('onChange:current=', current);
-        console.log('onChange:pageSize=', pageSize);
+        this.setState({current});
     }
 
     renderGridRecord = () => {
-        
-        /*return this.props.gridInfo.map((data, index, ram ) => {
-            return <GridRecord
-                key={data.id}
-                id={data.id}
-                name_val={data.name_val}
-                order_date={data.order_date}
-                unit={data.unit}
-                discount={data.discount}
-                in_stock={data.in_stock}
-                newRecord={false}
-            />
-        })*/
         var welcome = []
         const {current, recPerPage} = this.state
 
@@ -81,7 +64,6 @@ class GridContent extends Component {
                 newRecord={false}
             />)
         }
-        console.log('====',welcome)
         return welcome
 
     }
