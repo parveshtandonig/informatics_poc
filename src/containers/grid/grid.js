@@ -36,6 +36,8 @@ class GridContent extends Component {
     componentWillMount(){
         this.totalRecord = this.props.gridInfo.length;
     }
+
+    
     
     onShowSizeChange = (current, recPerPage) => {
         this.setState({recPerPage})
@@ -50,29 +52,28 @@ class GridContent extends Component {
     }
 
     renderGridRecord = () => {
-        var welcome = [];
-        const {current, recPerPage} = this.state;
-
-        var endCount=0;
+        let userList = [];
+        let endCount=0;
         let filterdData;
+        const {current, recPerPage} = this.state;        
 
         if(this.state.filterd !== ''){
             filterdData = this.props.gridInfo.filter(item => JSON.stringify(item).indexOf(this.state.filterd) != -1);
         }else{
             filterdData = this.props.gridInfo;
         }
-        
+        this.totalRecord = filterdData.length;
+
         if((current * recPerPage) < filterdData.length){
             endCount = current * recPerPage;
         }else{
-            var sss = current * recPerPage;
-            endCount = filterdData.length - sss;
+            endCount = filterdData.length - (current * recPerPage);
         }
 
         var startCount = current == 1 ? 0 : ((this.state.current-1) * this.state.recPerPage);
         
         for(var count = startCount; count < endCount; count++){
-            welcome.push(<GridRecord
+            userList.push(<GridRecord
                 key={filterdData[count].id}
                 id={filterdData[count].id}
                 name_val={filterdData[count].name_val}
@@ -83,8 +84,8 @@ class GridContent extends Component {
                 newRecord={false}
             />)
         }
-        this.totalRecord = filterdData.length;
-        return welcome
+        
+        return userList
     }
 
     addUserUI = (info) => this.setState({ showAddUserUI: info })
