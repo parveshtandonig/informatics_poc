@@ -46,19 +46,21 @@ const GridRecord = (props) => {
   return (
       <div className="flex--cont--def grid--row--container">      
         <div className="grid--row--child--container">
-          <Input type="select" onChange={(evt) => getData(evt)} name="name_a">
+          {/*<Input type="select" onChange={(evt) => getData(evt)} name="name_a">
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
             <option>5</option>
-          </Input>
+          </Input>*/}
+          <Input type="text"  defaultValue={props.name_val} placeholder="Name" />
         </div>
         <div className="grid--row--child--container">
-          <DatePicker className="grid--calender--field" />
+          {/*<DatePicker className="grid--calender--field" />*/}
+          <Input type="date" name="dateTxt" defaultValue={Date('12-12-2018')} />
         </div>
         <div className="grid--row--child--container">
-          <Input type="text" onChange={(evt) => getData(evt)} name="text1" placeholder="with a placeholder" />
+          <Input type="text" onChange={(evt) => getData(evt)} name="text1" defaultValue={props.unit} placeholder="with a placeholder" />
         </div>
         <div className="grid--row--child--container">
           <input type="checkbox" />

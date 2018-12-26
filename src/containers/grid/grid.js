@@ -15,9 +15,10 @@ import * as actionType from '../../actions'
 import GridRecord from '../../components/grid/gridRecord'
 
 class GridContent extends Component {
-
+    totalRecord;
     constructor(props) {
         super(props)
+        
         this.state = {
             name_val: 5,
             order_date: "1566591226",
@@ -31,7 +32,11 @@ class GridContent extends Component {
             totalRecord:0
         }
     }
-    static totalRecord = 0
+
+    componentWillMount(){
+        this.totalRecord = this.props.gridInfo.length;
+    }
+    
     onShowSizeChange = (current, recPerPage) => {
         this.setState({recPerPage})
     }
@@ -99,7 +104,7 @@ class GridContent extends Component {
             <React.Fragment>
                 <div className="flex--cont--def user-actions--container">
                     <div className="user-actions--child user-actions--child--a">
-                        User({this.props.gridInfo.length})
+                        User({this.totalRecord})
                     </div>
                     <div className="user-actions--child user-actions--child--b">
                         <FaPlus
