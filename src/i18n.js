@@ -6,16 +6,12 @@ i18n.use(LanguageDetector).init({
   // we init with resources
   resources: {
     en: {
-      translations: {
-        "To get started, edit <1>src/App.js</1> and save to reload.":
-          "To get started, edit <1>src/App.js</1> and save to reload.",
+      translations: { 
         "Welcome to React": "Welcome to React and react-i18next"
       }
     },
     de: {
-      translations: {
-        "To get started, edit <1>src/App.js</1> and save to reload.":
-          "Starte in dem du, <1>src/App.js</1> editierst und speicherst.",
+      translations: { 
         "Welcome to React": "Willkommen bei React und react-i18next"
       }
     }

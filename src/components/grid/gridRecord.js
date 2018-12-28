@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker"
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
 const GridRecord = (props) => {
+  console.log("GridRecord",props)
   var data = {
     id:props.id,
     name_val: props.name_val,

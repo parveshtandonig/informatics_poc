@@ -11,16 +11,15 @@ import AppRouter from './appRouter'
 import { translate, Trans } from "react-i18next";
 
 class App extends Component {
-
+  
   render() {
     const { t, i18n } = this.props; 
     const changeLanguage = lng => {
       i18n.changeLanguage(lng);
     };
+    console.log('props',this.props);
     return (
-      
       <div className="flex--cont--def app--container">
-       
        <h2>{t("Welcome to React")}</h2>
        <p>
         <span onClick={() => changeLanguage("de")}>de</span>..../.....
